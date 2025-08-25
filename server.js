@@ -32,7 +32,54 @@ if (bruxo) {
     })
 }
 
-})
+});
+
+
+app.get(`/varinhas/:id`, (req, res) => {
+    let id = req.params.id;
+    id = parseInt(id);
+    const varinha = varinhas.find(b => b.id === id);
+
+if (varinha) {
+    res.json(varinha);
+} else {
+    res.status(400).json({
+        mensagem: "Varinha Não encontrado"
+    })
+}
+
+});
+
+
+app.get(`/animais/:id`, (req, res) => {
+    let id = req.params.id;
+    id = parseInt(id);
+    const animal = animais.find(b => b.id === id);
+
+if (animal) {
+    res.json(animal);
+} else {
+    res.status(400).json({
+        mensagem: "Animal Não encontrado"
+    })
+}
+
+});
+
+app.get(`/pocoes/:id`, (req, res) => {
+    let id = req.params.id;
+    id = parseInt(id);
+    const pocao = pocoes.find(b => b.id === id);
+
+if (pocao) {
+    res.json(pocao);
+} else {
+    res.status(400).json({
+        mensagem: "Poção Não encontrado"
+    })
+}
+
+});
 
 app.get("/bruxos/nome/:nome", (req, res) => {
   
